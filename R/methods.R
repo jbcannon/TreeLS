@@ -542,7 +542,7 @@ tlsNormalize = function(las, min_res=.25, keep_ground=TRUE){
   res = area(las) / nrow(las@data[Classification == 2])
   res = ifelse(res < min_res, min_res, res)
 
-  grid = las %>% extent %>% raster
+  grid = las %>% terra::extent %>% raster
   res(grid) = res
 
   dtm = grid_terrain(las, res = grid, algorithm = knnidw(), full_raster=TRUE)
