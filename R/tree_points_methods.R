@@ -7,7 +7,7 @@ trp.voronoi = function(){
 
   func = function(las, xymap){
     xt = terra::ext(las) + c(-1,1,-1,1)
-    v_poly = voronoi(xymap[,2:3], xt)
+    v_poly = terra::voronoi(xymap[,2:3], xt)
     v_poly$id = xymap$TreeID
     names(v_poly) = 'TreeID'
     crs(v_poly) = crs(las)
